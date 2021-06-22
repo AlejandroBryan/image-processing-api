@@ -1,0 +1,39 @@
+{
+  "name": "image-processing-api",
+  "version": "1.0.0",
+  "description": "a udacity project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlejandroBryan/image-processing-api.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs",
+    "javascript",
+    "eslint",
+    "typescript"
+  ],
+  "author": "Alejandro Bryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlejandroBryan/image-processing-api/issues"
+  },
+  "homepage": "https://github.com/AlejandroBryan/image-processing-api#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/node": "^15.12.4",
+    "eslint": "^7.29.0",
+    "prettier": "^2.3.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  }
+}
