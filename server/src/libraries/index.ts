@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import path from 'path';
 
 const create = async (file: string | null, width: number | null, height: number | null): Promise<void | string> => {
-  //const result = await readFileSync(__dirname + '/assets/images/'+ file);
+  // const result = await readFileSync(__dirname + '/assets/images/'+ file);
   try {
     const pathImage = path.resolve(__dirname, `../assets/images/${file}`);
     const pathOutput = path.resolve(__dirname, `../assets/thumbnails/${file}.jpeg`);

@@ -7,9 +7,9 @@ const router = Router();
 
 router.get('/', async (req: Request, res: Response, next: Function): Promise<void> => {
   try {
-    let width = (await Number(req.query.width)) || null;
-    let height = (await Number(req.query.height)) || null;
-    let file = (await req.query.file) as string;
+    const width = (await Number(req.query.width)) || null;
+    const height = (await Number(req.query.height)) || null;
+    const file = (await req.query.file) as string;
     const image = await path.resolve(__dirname, `../assets/thumbnails/${file}`);
 
     // invoke your your function and pass the thr arguments
