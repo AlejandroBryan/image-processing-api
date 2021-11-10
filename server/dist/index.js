@@ -11,14 +11,13 @@ var http_1 = __importDefault(require("http"));
 var index_1 = __importDefault(require("./routes/index"));
 var ExpressErrorHandler_1 = __importDefault(require("./libraries/ExpressErrorHandler"));
 var app = express_1.default();
-//view engine
 // middlewares
 app.use(cookie_parser_1.default());
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(morgan_1.default('dev'));
-app.use(express_1.default.static(__dirname + "\assets\images"));
-app.use(express_1.default.static(path_1.default.join(__dirname, "\assets")));
+// app.use(express.static(path.join(__dirname + 'assets')));
+app.use(express_1.default.static(path_1.default.join(__dirname, 'assets/thumbnails')));
 // server setup
 var server = http_1.default.createServer(app);
 var hostname = '0.0.0.0';

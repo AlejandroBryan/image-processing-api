@@ -16,7 +16,7 @@ var diskStorage = multer_1.default.diskStorage({
     },
     filename: function (req, file, done) {
         done(null, file.originalname);
-    }
+    },
 });
 var fileValidator = function (req, file, done) {
     var extFile = file.originalname.replace('.', '');

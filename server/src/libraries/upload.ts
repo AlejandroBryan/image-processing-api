@@ -1,4 +1,4 @@
-import { Request } from 'express';
+import { Request, Express } from 'express';
 import multer, { StorageEngine, Multer } from 'multer';
 import { resolve } from 'path';
 

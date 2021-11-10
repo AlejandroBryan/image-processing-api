@@ -13,8 +13,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-app.use(express.static(__dirname + 'assets/images'));
-app.use(express.static(path.join(__dirname, 'assets')));
+// app.use(express.static(path.join(__dirname + 'assets')));
+app.use(express.static(path.join(__dirname, 'assets/thumbnails')));
 
 // server setup
 const server = http.createServer(app);

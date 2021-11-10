@@ -40,16 +40,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
+var fs_1 = require("fs");
 var express_1 = require("express");
 var index_1 = __importDefault(require("../libraries/index"));
 var upload_1 = __importDefault(require("../libraries/upload"));
 var router = express_1.Router();
 router.get('/', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var width, height, file, image, err_1;
+    var width, height, file, result, exitingFile, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 5, , 6]);
+                _a.trys.push([0, 7, , 8]);
                 return [4 /*yield*/, Number(req.query.width)];
             case 1:
                 width = (_a.sent()) || null;
@@ -58,23 +59,27 @@ router.get('/', function (req, res, next) { return __awaiter(void 0, void 0, voi
                 height = (_a.sent()) || null;
                 return [4 /*yield*/, req.query.file];
             case 3:
-                file = _a.sent();
+                file = (_a.sent());
                 return [4 /*yield*/, path_1.default.resolve(__dirname, "../assets/thumbnails/" + file)];
             case 4:
-                image = _a.sent();
+                result = _a.sent();
+                return [4 /*yield*/, path_1.default.resolve(__dirname, "../assets/images/" + file)];
+            case 5:
+                exitingFile = _a.sent();
+                if (!fs_1.existsSync(exitingFile)) {
+                    return [2 /*return*/, next(new Error('The required file does not exist and as result a new thumbnail could not be created'))];
+                }
                 // invoke your your function and pass the thr arguments
                 index_1.default(file, width, height);
-                if (!file) {
-                    next(new Error("The required file does not exist"));
-                }
-                res.sendFile(image);
-                return [3 /*break*/, 6];
-            case 5:
+                return [4 /*yield*/, res.status(200).sendFile(result)];
+            case 6:
+                _a.sent();
+                return [3 /*break*/, 8];
+            case 7:
                 err_1 = _a.sent();
-                if (err_1)
-                    next(new Error('An error occurred while getting the file'));
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
+                next(new Error('An error occurred while getting the file'));
+                return [3 /*break*/, 8];
+            case 8: return [2 /*return*/];
         }
     });
 }); });

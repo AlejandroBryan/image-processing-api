@@ -5,11 +5,13 @@
   "main": "index.ts",
   "scripts": {
     "start": "node  ./dist/index",
-    "build": " npx tsc",
+    "clean": "rm -rf ./dist",
+    "copy-files": "cp -r src/assets/ ./dist",
     "jasmine": "jasmine",
+    "build": "npm run clean && tsc && npm run copy-files",
     "test": "npm run build && npm run jasmine",
     "dev": "nodemon --config nodemon.json src/index.ts",
-    "lint": "eslint --config .eslintrc src/**",
+    "lint": "eslint --config .eslintrc .ts --ext src/**",
     "format": "prettier --config .prettierrc --write src/**/*.ts"
   },
   "repository": {
@@ -62,6 +64,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jasmine": "^4.1.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^5.1.0",
