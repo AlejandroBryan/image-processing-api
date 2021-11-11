@@ -27,12 +27,19 @@ router.get('/', async (req: Request, res: Response, next: Function) => {
 
 router.post('/upload', fileUpload.single('image'), async (req: Request, res: Response) => {
   try {
-    console.log(req.file, req.body);
+    // console.log(req.file, req.body);
 
     res.status(200).json({ message: req.body });
   } catch (err) {
     console.log(err);
   }
 });
+
+/* router.get('/pictures', async (req: Request, res: Response) =>{
+  const exitingFile = await path.resolve(__dirname, `../assets/images`);
+  const result = await readdirSync(exitingFile, 'utf8');
+  res.status(200).json(result);
+  console.log(result);
+}); */
 
 export default router;
