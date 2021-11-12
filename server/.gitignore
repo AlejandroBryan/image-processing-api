@@ -1,2 +1,5 @@
+#npm package
 /node_modules
-/dist
+
+#production
+dist/

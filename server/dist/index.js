@@ -22,8 +22,11 @@ app.use(express_1.default.static(path_1.default.join(__dirname, 'assets/thumbnai
 var server = http_1.default.createServer(app);
 var hostname = '0.0.0.0';
 var PORT = 3001;
+app.get('/', function (req, res, next) {
+    var readMe = path_1.default.resolve(__dirname, "../README.md");
+    res.status(200).sendFile(readMe);
+});
 app.use('/api/images', index_1.default);
-app.get('/', function (req, res) { return res.send('hello'); });
 app.all('*', function (req, res, next) {
     next(new ExpressErrorHandler_1.default('Page Not Found', 404));
 });

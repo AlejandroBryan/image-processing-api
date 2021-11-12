@@ -86,7 +86,7 @@ router.get('/', function (req, res, next) { return __awaiter(void 0, void 0, voi
 router.post('/upload', upload_1.default.single('image'), function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         try {
-            console.log(req.file, req.body);
+            // console.log(req.file, req.body);
             res.status(200).json({ message: req.body });
         }
         catch (err) {
@@ -95,4 +95,10 @@ router.post('/upload', upload_1.default.single('image'), function (req, res) { r
         return [2 /*return*/];
     });
 }); });
+/* router.get('/pictures', async (req: Request, res: Response) =>{
+  const exitingFile = await path.resolve(__dirname, `../assets/images`);
+  const result = await readdirSync(exitingFile, 'utf8');
+  res.status(200).json(result);
+  console.log(result);
+}); */
 exports.default = router;
