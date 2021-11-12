@@ -23,9 +23,12 @@ const hostname: string = '0.0.0.0';
 
 const PORT: number = 3001;
 
-app.use('/api/images', imageRoute);
+app.get('/', (req: Request, res: Response, next: NextFunction) => {
+  const readMe = path.resolve(__dirname, `../README.md`);
+  res.status(200).sendFile(readMe);
+});
 
-app.get('/', (req, res) => res.send('hello'));
+app.use('/api/images', imageRoute);
 
 app.all('*', (req: Request, res: Response, next: NextFunction) => {
   next(new ExpressErrorHandler('Page Not Found', 404));
