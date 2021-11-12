@@ -14,7 +14,7 @@ It's the first project in order to achieved the JavaScript Full Stack nano degre
 ## Getting Started
 
 ### Dependencies
-make sure to have already installed the programs on your computer Nodejs version +14 and NPM. 
+make sure to have already installed the followings programs on your computer Nodejs up version +14 and NPM. 
 
 
 ### Executing program
@@ -42,6 +42,7 @@ npm run lint
 npm run format
 
 ```
+
 
 ## consuming the Api
 * once everything is running correctly
