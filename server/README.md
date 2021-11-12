@@ -14,7 +14,7 @@ It's the first project in order to achieved the JavaScript Full Stack nano degre
 ## Getting Started
 
 ### Dependencies
-Nodejs and NPM 
+make sure to have already installed the programs on your computer Nodejs version +14 and NPM. 
 
 
 ### Executing program
